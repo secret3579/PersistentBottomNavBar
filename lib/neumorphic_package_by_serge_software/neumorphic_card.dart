@@ -54,7 +54,7 @@ class NeumorphicContainer extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final color = decoration.color ?? Theme.of(context).backgroundColor;
+    final color = decoration.color ?? Theme.of(context).scaffoldBackgroundColor;
     final emboss = curveType == CurveType.emboss;
 
     Color colorValue = color;
@@ -124,11 +124,7 @@ class NeumorphicContainer extends StatelessWidget {
   }
 
   Color _getAdjustColor(final Color baseColor, final double amount) {
-    Map<String, int> colors = {
-      "r": baseColor.red,
-      "g": baseColor.green,
-      "b": baseColor.blue
-    };
+    Map<String, int> colors = {"r": baseColor.red, "g": baseColor.green, "b": baseColor.blue};
 
     colors = colors.map((final key, final value) {
       if (value + amount < 0) {
@@ -142,8 +138,7 @@ class NeumorphicContainer extends StatelessWidget {
     return Color.fromRGBO(colors["r"]!, colors["g"]!, colors["b"]!, 1);
   }
 
-  Gradient _getFlatGradients(final Color baseColor, final double depth) =>
-      LinearGradient(
+  Gradient _getFlatGradients(final Color baseColor, final double depth) => LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
@@ -152,8 +147,7 @@ class NeumorphicContainer extends StatelessWidget {
         ],
       );
 
-  Gradient _getConcaveGradients(final Color baseColor, final double depth) =>
-      LinearGradient(
+  Gradient _getConcaveGradients(final Color baseColor, final double depth) => LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
@@ -162,8 +156,7 @@ class NeumorphicContainer extends StatelessWidget {
         ],
       );
 
-  Gradient _getConvexGradients(final Color baseColor, final double depth) =>
-      LinearGradient(
+  Gradient _getConvexGradients(final Color baseColor, final double depth) => LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
